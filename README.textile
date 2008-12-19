@@ -2,7 +2,7 @@ h1. Tim's Mini JavaScript Library
 
 "github.com/seven1m/mini":http://github.com/seven1m/mini
 
-Some handy functions for building light Web 5.0 (beta of course) applications.
+An uber lightweight library for building Web 5.0 (beta of course) applications.
 
 h2. mini.ajax
 
