@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>form.js test</title>
+    <script type="text/javascript" src="form.js"></script>
+    <style type="text/css">
+      code {
+        background-color: #eee;
+      }
+      label.error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>form.js test</h1>
+    <p>This HTML page serves to test the form.js library in its basic functionality.</p>
+    
+    <h2>form.label()</h2>
+    <p><label for="text_input1">the label: </label><input name="text_input1"/></p>
+    <p><a href="#" onclick="alert(form.label('text_input1'));return false;">test form.label()</a></p>
+    
+    <h2>form.validate()</h2>
+    <p>Submit this form to test the <code>form.validate()</code> function.</p>
+    <form onsubmit="return form.validate(this)">
+      <input type="hidden" name="hideme" value="i am hidden"/>
+      <label for="text_input">text_input:</label>
+      <input id="text_input" name="text_input" value="some text" required="required"/>
+      <label for="select_input">select_input:</label>
+      <select id="select_input" name="select_input" required="required">
+        <option value=""></option>
+        <option value="value 1">value 1</option>
+        <option value="value 2">value 2</option>
+        <option value="value 3">value 3</option>
+      </select>
+      <label for="textarea_input">textarea_input:</label>
+      <textarea id="textarea_input" name="textarea_input" required="required"></textarea>
+      <input type="submit" value="Test"/>
+    </form>
+  </body>
+</html>

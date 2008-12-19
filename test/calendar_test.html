@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title>calendar.js test</title>
+    <script type="text/javascript" src="calendar.js"></script>
+    <style type="text/css">
+      code {
+        background-color: #eee;
+      }
+      table.calendar tr.select th a {
+        text-decoration: none;
+      }
+      table.calendar th, table.calendar td {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>calendar.js test</h1>
+    <p>This HTML page serves to test the calendar.js library in its basic functionality.</p>
+    
+    <h2>calendar.build()</h2>
+    <script type="text/javascript">
+      function build_test(m,y,w){
+        var e=document.getElementById('calendar_build_test');
+        e.innerHTML = '';
+        var a=calendar.build(m,y,w);
+        for(var r=0;r<a.length;r++){
+          e.innerHTML += '[' + a[r].join(', ') + ']<br/>';
+        }
+      };
+      today=new Date();
+      next_month = new Date()
+      next_month.setMonth(today.getMonth()+1)
+    </script>
+    <p>
+      test calendar.build() -
+      <a href="#" onclick="build_test(today.getMonth()+1,today.getFullYear());return false;">this month</a>
+      &middot;
+      <a href="#" onclick="build_test(next_month.getMonth()+1,next_month.getFullYear());return false;">next month</a>
+      &middot;
+      <a href="#" onclick="build_test(today.getMonth()+1,today.getFullYear(),1);return false;">this month (wkstart=Monday)</a>
+    </p>
+    <pre id="calendar_build_test"></pre>
+    
+    <h2>calendar.table()</h2>
+    <p><a href="#" onclick="document.getElementById('calendar_table_test').innerHTML=calendar.table(today.getMonth()+1,today.getFullYear());return false;">test calendar.table()</a></p>
+    <div id="calendar_table_test"></div>
+    
+    <h2>calendar.selmonth()</h2>
+    <p><a href="#" onclick="var e=document.getElementById('calendar_selmonth_test');e.innerHTML=calendar.selmonth('calendar_selmonth_test',today.getMonth()+1,today.getFullYear());alert(e.innerHTML);return false;">test calendar.selmonth()</a></p>
+    <div id="calendar_selmonth_test"></div>
+
+    <h2>calendar.selyear()</h2>
+    <p><a href="#" onclick="var e=document.getElementById('calendar_selyear_test');e.innerHTML=calendar.selyear('calendar_selyear_test',today.getMonth()+1,today.getFullYear());alert(e.innerHTML);return false;">test calendar.selyear()</a></p>
+    <div id="calendar_selyear_test"></div>
+    
+    <h2>calendar.selector()</h2>
+    <p>
+      test calendar.selector() -
+      <a href="#" onclick="calendar.selector('calendar_selector_test',today.getMonth()+1,today.getFullYear(),0,'');return false;">normal</a>
+      &middot;
+      <a href="#" onclick="calendar.selector('calendar_selector_test',today.getMonth()+1,today.getFullYear(),1,'');return false;">wkstart=Monday</a>
+      &middot;
+      <a href="#" onclick="calendar.selector('calendar_selector_test',today.getMonth()+1,today.getFullYear(),0,'<a href=\'#\' onclick=\'alert(%d);return false\'>%d</a>');return false;">linked days</a>
+    </p>
+    <div id="calendar_selector_test"></div>
+    
+    <h2>calendar.makepickers()</h2>
+    <p><a href="#" onclick="calendar.makepickers();return false;">test calendar.makepickers()</a></p>
+    <p>
+      <input name="date" onfocus="alert('hi');" id="date" class="mini-calendar-datepicker"/>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>mini.ajax.js test</title>
+    <script type="text/javascript" src="ajax.js"></script>
+    <style type="text/css">
+      code {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>mini.ajax.js test</h1>
+    <p>This HTML page serves to test the mini.ajax.js library in its basic functionality.</p>
+    
+    <h2>collect()</h2>
+    <p><a href="#" onclick="alert(collect(['a','b','c','notme'],function(i){if(i!='notme')return i+' changed'}));return false;">test collect()</a> (<code>['a', 'b', 'c', 'notme']</code> =&gt; <code>['a changed', 'b changed', 'c changed']</code>)</p>
+    
+    <h2>mini.ajax.serialize()</h2>
+    <p>Submit this form to test the <code>mini.ajax.serialize()</code> function.</p>
+    <form onsubmit="alert(mini.ajax.serialize(this));return false;">
+      <input type="hidden" name="hideme" value="i am hidden"/>
+      <input name="text_input" value="some text"/>
+      <input type="checkbox" name="checkbox_input1" value="yes"/>
+      <input type="checkbox" name="checkbox_input2" value="yes" checked="checked"/>
+      <input type="radio" name="radio_input" value="value 1"/>
+      <input type="radio" name="radio_input" value="value 2" checked="checked"/>
+      <input type="radio" name="radio_input" value="value 2"/>
+      <select name="select_input">
+        <option value="value 1">value 1</option>
+        <option value="value 2">value 2</option>
+        <option value="value 3">value 3</option>
+      </select>
+      <textarea name="textarea_input">here is some text
+      with 
+      
+      a line break or two</textarea>
+      <input type="submit" value="Test"/>
+    </form>
+    
+    <h2>mini.ajax.get()</h2>
+    <p><a href="#" onclick="mini.ajax.get('ajax_test_fragment.html', alert);return false;">test mini.ajax.get()</a></p>
+    
+    <h2>mini.ajax.post()</h2>
+    <p><a href="#" onclick="mini.ajax.post('ajax_test_fragment.html', alert);return false;">test mini.ajax.post()</a></p>
+    
+    <h2>mini.ajax.update()</h2>
+    <p><a href="#" onclick="mini.ajax.update('ajax_test_fragment.html', 'update_test');return false;">test mini.ajax.update()</a></p>
+    <div id="update_test"><em>this text should get replaced by the test fragment</em></div>
+    
+    <h2>mini.ajax.submit()</h2>
+    <form onsubmit="mini.ajax.submit('ajax_test_fragment.html', this, 'form_test');return false;">
+      <input type="submit" name="submit" value="Test"/>
+    </form>
+    <div id="form_test"><em>this text should get replaced by the test fragment</em></div>
+  </body>
+</html>
