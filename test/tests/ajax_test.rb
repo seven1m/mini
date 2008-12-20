@@ -13,6 +13,7 @@ class AjaxTest < Test::Unit::TestCase
 
   def setup
     @ff = FF
+    @ff.link(:text, 'disable mini.ajax.bustcache').click
   end
   
   def test_collect
@@ -53,5 +54,13 @@ class AjaxTest < Test::Unit::TestCase
   def test_submit
     @ff.button(:value, 'test submit').click
     assert_equal 'you sent a POST with args {"foo"=>"bar"}', @ff.div(:id, 'submit_results').text
-  end  
+  end
+  
+  def test_cache_buster
+    @ff.link(:text, 'enable mini.ajax.bustcache').click
+    @ff.link(:text, 'test mini.ajax.get()').click
+    results = @ff.div(:id, 'get_results').text
+    assert_match /you sent a GET with args/, results
+    assert_match /"nocache"=>"\d+"/,         results
+  end
 end

@@ -19,6 +19,8 @@ function collect(a,f){
   return n
 }
 
+mini.ajax.bustcache='nocache'; // Set to null to disable additional cache-busting arg on all ajax requests
+
 // Serializes all the fields in a form so that they can be passed as a query string in the form "arg1=val1&arg2=val2".
 mini.form.serialize=function(f){
   var g=function(n){
@@ -26,7 +28,7 @@ mini.form.serialize=function(f){
   };
   var nv=function(e){
     if(e.name)return encodeURIComponent(e.name)+'='+encodeURIComponent(e.value);
-    else return ''
+    else return null
   };
   var i=collect(
     g('input'),
@@ -55,6 +57,12 @@ mini.ajax.x=function(){
 // Send a basic Ajax request.
 mini.ajax.send=function(u,f,m,a){
   var x=mini.ajax.x();
+  if(mini.ajax.bustcache){
+    var c=mini.ajax.bustcache+'='+new Date().getTime();
+    if(m=='GET')u+=u.indexOf('?')==-1?'?':'&'+c;
+    else if(a&&a!='')a+='&'+c;
+    else a=c
+  };
   x.open(m,u,true);
   x.onreadystatechange=function(){
     if(x.readyState==4)f(x.responseText)
