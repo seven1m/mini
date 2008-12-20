@@ -10,7 +10,7 @@ LIBS.each do |lib|
   content << "h2. #{NAMESPACE}.#{lib}\n\n"
   code = File.read(File.join('src', lib + '.js'))
   code.scan(/((^\/\/.+?\n)+)(mini\.[a-z0-9_]+\.[a-z0-9_]+)=function\(([a-z0-9_,]*)\)/).each do |doc, dummy, name, args|
-    content << "h3. #{name}(#{args})\n"
+    content << "@#{name}(#{args})@\n"
     content << doc.gsub(/^\/\/\s*/, '').sub(/\n+$/, '') + "\n\n"
   end
   code = code.gsub(/^\/\/.+\n/, '').gsub(/^ +/, '').gsub(/([,'"\w;\{\}\(\)])\n/, '\1')
