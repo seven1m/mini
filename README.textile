@@ -7,28 +7,7 @@ An uber lightweight library for building Web 5.0 (beta of course) applications.
 h2. mini.ajax
 
 @mini.form.serialize(f)@
-ajax.js source (minified version in pkg directory)
-if(!window.mini)mini={};
-if(!mini.form)mini.form={};
-if(!mini.ajax)mini.ajax={};
-
-if(!window.$)
-$=function(e){
-  if(typeof e=='string')e=document.getElementById(e);
-  return e
-}
-
-function collect(a,f){
-  var n=[];
-  for(var i=0;i<a.length;i++){
-    var v=f(a[i]);
-    if(v!=null)n.push(v)
-  }
-  return n
-}
-
 Serializes all the fields in a form so that they can be passed as a query string in the form "arg1=val1&arg2=val2".
-
 
 @mini.ajax.x()@
 The XMLHttpRequest object (or MS equivalent) used for communication
@@ -54,5 +33,5 @@ Uses a POST request to query the specified url and insert the result into the sp
 Used in the onsubmit handler of a function. The form is not submitted the usual way; the form is instead serialized using "ajax.serialize" and submitted using "ajax.post". The result is then inserted into the specified element.
 * @frm@ = form element
 * @elm@ (optional) = element to update with returned content; if blank, returned content will be assumed to be javascript, and will be evaluated
-Example: @<form action="fallback/url" onsubmit="mini.ajax.submit('ajax/form/url', this, 'div_to_update')@
+Example: @<form action="fallback/url" onsubmit="mini.ajax.submit('ajax/form/url', this, 'div_to_update');return false;">@
 

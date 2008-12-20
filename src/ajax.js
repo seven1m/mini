@@ -94,7 +94,7 @@ mini.ajax.update=function(url,elm,method,args){
 // Used in the onsubmit handler of a function. The form is not submitted the usual way; the form is instead serialized using "ajax.serialize" and submitted using "ajax.post". The result is then inserted into the specified element.
 // * @frm@ = form element
 // * @elm@ (optional) = element to update with returned content; if blank, returned content will be assumed to be javascript, and will be evaluated
-// Example: @<form action="fallback/url" onsubmit="mini.ajax.submit('ajax/form/url', this, 'div_to_update')@
+// Example: @<form action="fallback/url" onsubmit="mini.ajax.submit('ajax/form/url', this, 'div_to_update');return false;">@
 mini.ajax.submit=function(url,frm,elm){
   var e=$(elm);
   var f=function(r){
