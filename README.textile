@@ -7,7 +7,28 @@ An uber lightweight library for building Web 5.0 (beta of course) applications.
 h2. mini.ajax
 
 @mini.form.serialize(f)@
+ajax.js source (minified version in pkg directory)
+if(!window.mini)mini={};
+if(!mini.form)mini.form={};
+if(!mini.ajax)mini.ajax={};
+
+if(!window.$)
+$=function(e){
+  if(typeof e=='string')e=document.getElementById(e);
+  return e
+}
+
+function collect(a,f){
+  var n=[];
+  for(var i=0;i<a.length;i++){
+    var v=f(a[i]);
+    if(v!=null)n.push(v)
+  }
+  return n
+}
+
 Serializes all the fields in a form so that they can be passed as a query string in the form "arg1=val1&arg2=val2".
+
 
 @mini.ajax.x()@
 The XMLHttpRequest object (or MS equivalent) used for communication
