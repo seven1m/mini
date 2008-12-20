@@ -6,30 +6,30 @@ An uber lightweight library for building Web 5.0 (beta of course) applications.
 
 h2. mini.ajax
 
-@mini.form.serialize(f)@
+h3. mini.form.serialize(f)
 Serializes all the fields in a form so that they can be passed as a query string in the form "arg1=val1&arg2=val2".
 
-@mini.ajax.x()@
+h3. mini.ajax.x()
 The XMLHttpRequest object (or MS equivalent) used for communication
 
-@mini.ajax.send(u,f,m,a)@
+h3. mini.ajax.send(u,f,m,a)
 Send a basic Ajax request.
 
-@mini.ajax.get(url,func)@
+h3. mini.ajax.get(url,func)
 Uses a GET request to query the specified url and return a response to the specified function.
 
-@mini.ajax.gets(url)@
+h3. mini.ajax.gets(url)
 Uses a GET request to query the specified url and return a response synchronously. Use this sparingly, as synchronous calls can lock up the browser.
 
-@mini.ajax.post(url,func,args)@
+h3. mini.ajax.post(url,func,args)
 Uses a POST request to query the specified url and return a response to the specified function.
 
-@mini.ajax.update(url,elm,method,args)@
+h3. mini.ajax.update(url,elm,method,args)
 Uses a POST request to query the specified url and insert the result into the specified element.
 * @method@ = GET or POST (default)
 * @args@ = arguments as string (not used if specifying GET -- instead pass args with url like this: "url?arg=val")
 
-@mini.ajax.submit(url,frm,elm)@
+h3. mini.ajax.submit(url,frm,elm)
 Used in the onsubmit handler of a function. The form is not submitted the usual way; the form is instead serialized using "ajax.serialize" and submitted using "ajax.post". The result is then inserted into the specified element.
 * @frm@ = form element
 * @elm@ (optional) = element to update with returned content; if blank, returned content will be assumed to be javascript, and will be evaluated
