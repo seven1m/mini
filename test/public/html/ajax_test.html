@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>mini.ajax.js test</title>
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <style type="text/css">
+      code {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>mini.ajax.js test</h1>
+    <p>This HTML page serves to test the mini.ajax.js library in its basic functionality.</p>
+    
+    <h2>collect()</h2>
+    <p>
+      <a href="#" onclick="$('collect_results').innerHTML=collect(['a','b','c','notme'],function(i){if(i!='notme')return i+' changed'});return false;">test collect()</a>
+    </p>
+    <div id="collect_results">a,b,c,notme</div>
+    
+    <h2>mini.ajax.serialize()</h2>
+    <p>Submit this form to test the <code>mini.ajax.serialize()</code> function.</p>
+    <form onsubmit="$('serialize_results').innerHTML=mini.form.serialize(this);return false;">
+      <input type="hidden" name="hideme" value="i am hidden"/>
+      <input name="text_input" value="some text"/>
+      <input type="checkbox" name="checkbox_input1" value="yes"/>
+      <input type="checkbox" name="checkbox_input2" value="yes" checked="checked"/>
+      <input type="radio" name="radio_input" value="value 1"/>
+      <input type="radio" name="radio_input" value="value 2" checked="checked"/>
+      <input type="radio" name="radio_input" value="value 2"/>
+      <select name="select_input">
+        <option value="value 1">value 1</option>
+        <option value="value 2">value 2</option>
+        <option value="value 3">value 3</option>
+      </select>
+      <textarea name="textarea_input">here is some text
+      with 
+      
+      a line break or two</textarea>
+      <input type="submit" value="test serialize"/>
+    </form>
+    <div id="serialize_results"></div>
+    
+    <h2>mini.ajax.get()</h2>
+    <p><a href="#" onclick="mini.ajax.get('/echo?foo=bar', function(r){$('get_results').innerHTML=r});return false;">test mini.ajax.get()</a></p>
+    <div id="get_results"></div>
+    
+    <h2>mini.ajax.post()</h2>
+    <p><a href="#" onclick="mini.ajax.post('/echo', function(r){$('post_results').innerHTML=r}, 'bar=baz');return false;">test mini.ajax.post()</a></p>
+    <div id="post_results"></div>
+    
+    <h2>mini.ajax.update()</h2>
+    <p><a href="#" onclick="mini.ajax.update('/echo', 'update_results', 'POST', 'baz=foo');return false;">test mini.ajax.update()</a></p>
+    <div id="update_results"></div>
+    
+    <h2>mini.ajax.submit()</h2>
+    <form onsubmit="mini.ajax.submit('/echo', this, 'submit_results');return false;">
+      <input name="foo" value="bar"/>
+      <input type="submit" value="test submit"/>
+    </form>
+    <div id="submit_results"></div>
+  </body>
+</html>
+
