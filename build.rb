@@ -13,7 +13,7 @@ LIBS.each do |lib|
     content << "@#{name}(#{args})@\n"
     content << doc.gsub(/^\/\/\s*/, '').sub(/\n+$/, '') + "\n\n"
   end
-  code = code.gsub(/^\/\/.+\n/, '').gsub(/^ +/, '').gsub(/([,'"\w;\{\}\(\)])\n/, '\1')
+  code = code.gsub(/^\/\/.+\n/, '').gsub(/^ +/, '').gsub(/([,'"\w;\{\}\(\)])\n/, '\1').gsub(/\s*\/\/.+$/, '').gsub(/^\s+/m, '')
   File.open(File.join('pkg', lib + '.js'), 'w') { |f| f.write(code) }
   File.open(File.join('test/public/js', lib + '.js'), 'w') { |f| f.write(code) }
 end
