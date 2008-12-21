@@ -24,6 +24,7 @@ mini.form.errclass='error';
 
 // Use in the onsubmit handler of your form to validate that required fields are completed, e.g. @<form onsubmit="return mini.form.validate(this)">@
 // Indicate required fields with class="required"
+// Add @label.error { color: red; }@ or similar to your stylesheet so that errored fields will stand out.
 mini.form.validate=function(frm){
   var g=function(n){
     var a=[];
