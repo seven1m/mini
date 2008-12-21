@@ -4,7 +4,7 @@ NAMESPACE = 'mini'
 LIBS = %w(ajax form)
 README = 'README.textile'
 
-content = File.read(README).split(/^h2./).first.strip + "\n\n"
+content = File.read(README).split(/^h2. [^(Usage)]/).first.strip + "\n\n"
 
 LIBS.each do |lib|
   content << "h2. #{NAMESPACE}.#{lib}\n\n"
