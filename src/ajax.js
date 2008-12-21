@@ -90,8 +90,8 @@ mini.ajax.post=function(url,func,args){
 }
 
 // Uses a POST request to query the specified url and insert the result into the specified element.
-// * @method@ = GET or POST (default)
-// * @args@ = arguments as string (not used if specifying GET -- instead pass args with url like this: "url?arg=val")
+// * *method* = GET or POST (default)
+// * *args* = arguments as string (not used if specifying GET -- instead pass args with url like this: "url?arg=val")
 mini.ajax.update=function(url,elm,method,args){
   method=method||'POST';
   var e=$(elm);
@@ -100,8 +100,8 @@ mini.ajax.update=function(url,elm,method,args){
 }
 
 // Used in the onsubmit handler of a function. The form is not submitted the usual way; the form is instead serialized using "ajax.serialize" and submitted using "ajax.post". The result is then inserted into the specified element.
-// * @frm@ = form element
-// * @elm@ (optional) = element to update with returned content; if blank, returned content will be assumed to be javascript, and will be evaluated
+// * *frm* = form element
+// * *elm* (optional) = element to update with returned content; if blank, returned content will be assumed to be javascript, and will be evaluated
 // Example: @<form action="fallback/url" onsubmit="mini.ajax.submit('ajax/form/url', this, 'div_to_update');return false;">@
 mini.ajax.submit=function(url,frm,elm){
   var e=$(elm);
