@@ -35,3 +35,9 @@ Used in the onsubmit handler of a function. The form is not submitted the usual 
 * @elm@ (optional) = element to update with returned content; if blank, returned content will be assumed to be javascript, and will be evaluated
 Example: @<form action="fallback/url" onsubmit="mini.ajax.submit('ajax/form/url', this, 'div_to_update');return false;">@
 
+h2. mini.form
+
+@mini.form.validate(frm)@
+Use in the onsubmit handler of your form to validate that required fields are completed, e.g. @<form onsubmit="return mini.form.validate(this)">@
+Indicate required fields with class="required"
+

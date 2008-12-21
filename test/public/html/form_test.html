@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>mini.form test</title>
+    <script type="text/javascript" src="/js/form.js"></script>
+    <script type="text/javascript">
+      function test(result) {
+        $('results').innerHTML = '';
+        $('results').innerHTML = result;
+      }
+      function test_form(text1, text2, text3, checkbox1, radio) {
+        $('text1').value = text1;
+        $('text2').value = text2;
+        $('text3').value = text3;
+        $('checkbox1').checked = checkbox1;
+        $('radio1').checked = $('radio2').checked = false; if(radio)$('radio'+radio).checked = true;
+        test(mini.form.validate($('test_form')));
+      }
+    </script>
+    <style type="text/css">.error { background-color: red }</style>
+  </head>
+  <body>
+    <h1>mini.form test</h1>
+    <p>This HTML page serves to test the mini.form library.</p>
+    
+    <form id="test_form" onsubmit="return mini.form.validate(this)">
+      <p>
+        <label for="text1">Text 1 - not required</label><br/>
+        <input name="text1" id="text1"/>
+      </p>
+      <p>
+        <label for="text2" id="text2_label">Text 2 - required</label><br/>
+        <input name="text2" id="text2" class="required"/>
+      </p>
+      <p>
+        Text 3 - no label<br/>
+        <input name="text3" id="text3" class="required"/>
+      </p>
+      <p>
+        <input type="checkbox" name="checkbox1" id="checkbox1" value="foo" class="required"/>
+        <label for="checkbox1" id="checkbox1_label">Checkbox 1</label>
+      </p>
+      <p>
+        <input type="radio" name="radio" id="radio1" value="foo" class="required"/>
+        <label for="radio1" id="radio1_label">Radio 1</label>
+        <input type="radio" name="radio" id="radio2" value="bar" class="required"/>
+        <label for="radio2" id="radio2_label">Radio 2</label>
+      </p>
+      <p><input type="submit"/></p>
+    </form>
+        
+    <div id="results"></div>
+    
+    <h2>mini.form.labelfor()</h2>
+    <p><a href="#" onclick="test(mini.form.labelfor('text1'));return false;">test labelfor 1</a></p>
+    <p><a href="#" onclick="test(mini.form.labelfor($('text1')));return false;">test labelfor 2</a></p>
+    
+    <h2>mini.form.validate()</h2>
+    <p><a href="#" onclick="test_form('', 'foo', 'foo', true,  1   );return false;">test validate 1</a></p>
+    <p><a href="#" onclick="test_form('', '',    'foo', true,  2   );return false;">test validate 2</a></p>
+    <p><a href="#" onclick="test_form('', 'foo', '',    true,  1   );return false;">test validate 3</a></p>
+    <p><a href="#" onclick="test_form('', 'foo', 'foo', false, 2   );return false;">test validate 4</a></p>
+    <p><a href="#" onclick="test_form('', 'foo', 'foo', false, null);return false;">test validate 5</a></p>
+  </body>
+</html>
+
