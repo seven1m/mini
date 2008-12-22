@@ -27,8 +27,7 @@ mini.form.serialize=function(f){
     return f.getElementsByTagName(n)
   };
   var nv=function(e){
-    if(e.name)return encodeURIComponent(e.name)+'='+encodeURIComponent(e.value);
-    else return null
+    if(e.name)return encodeURIComponent(e.name)+'='+encodeURIComponent(e.value)
   };
   var i=collect(
     g('input'),

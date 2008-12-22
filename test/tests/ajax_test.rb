@@ -33,6 +33,7 @@ class AjaxTest < Test::Unit::TestCase
     assert_no_match /radio_input=value 1/,  unescaped
     assert_match    /select_input=value 1/, unescaped
     assert_no_match /select_input=value 2/, unescaped
+    assert_no_match /test serialize/,       unescaped
     assert_match    /textarea_input=here is some text\s*with\s*a line break or two/, unescaped
   end
   
