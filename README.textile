@@ -2,12 +2,12 @@ h1. Tim's Mini JavaScript Library
 
 "github.com/seven1m/mini":http://github.com/seven1m/mini
 
-An uber lightweight library for building Web 5.0 (beta of course) applications.
+An uber lightweight library for building buzzword-compliant beta Web 5.0 applications.
 
 h2. Usage
 
-# Download and stick the contents of pkg/ in your app's javascript directory (the files in src/ contain comments and whitespace, whereas pkg/ contains minified versions).
-# Depending on your needs, add one or more @<script>@ tags, e.g. @<script type="text/javascript" src="/js/ajax.js"></script>@
+# Download and stick the contents of pkg/ in your app's javascript directory (the files in src/ contain comments and a bit of whitespace, whereas pkg/ contains minified versions).
+# Depending on your needs, add one or more @<script>@ tags, e.g. @<script type="text/javascript" src="/js/ajax.js"></script>@, to your html.
 
 h2. mini.ajax
 
